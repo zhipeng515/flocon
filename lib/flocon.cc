@@ -24,22 +24,29 @@ Flocon::~Flocon() {};
 
 void Flocon::Init(Handle<Object> exports) {
   // Prepare constructor template
-  Local<FunctionTemplate> tpl = FunctionTemplate::New(New);
-  tpl->SetClassName(String::NewSymbol("Flocon"));
-  tpl->InstanceTemplate()->SetInternalFieldCount(1);
+  Isolate* isolate = Isolate::GetCurrent();
+
+
+  Local<FunctionTemplate> tplNew = FunctionTemplate::New(isolate, New);
+  Local<FunctionTemplate> tplsnow = FunctionTemplate::New(isolate, Snow);
+
+  v8::Local<v8::String> class_name = v8::String::NewFromUtf8(isolate, "Flocon");
+  v8::Local<v8::String> fn_name = v8::String::NewFromUtf8(isolate, "snow");
+
+  tplNew->SetClassName(class_name);
+  tplNew->InstanceTemplate()->SetInternalFieldCount(1);
 
   // Prototype
-  tpl->PrototypeTemplate()->Set(
-    String::NewSymbol("snow"),
-    FunctionTemplate::New(Snow)->GetFunction()
-  );
+  tplNew->PrototypeTemplate()->Set(fn_name, tplsnow);
 
-  Persistent<Function> constructor = Persistent<Function>::New(tpl->GetFunction());
-  exports->Set(String::NewSymbol("Flocon"), constructor);
+  v8::Local<v8::Function> fn = tplNew->GetFunction();
+  fn->SetName(fn_name);
+  exports->Set(class_name, fn);
 }
 
-Handle<Value> Flocon::New(const Arguments& args) {
-  HandleScope scope;
+void Flocon::New(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
 
   Flocon* obj = new Flocon();
   obj->_count = 0;
@@ -47,11 +54,12 @@ Handle<Value> Flocon::New(const Arguments& args) {
   obj->_epoch = chrono::system_clock::from_time_t(1325376000); // January 1st, 2013
   obj->Wrap(args.This());
 
-  return args.This();
+  return args.GetReturnValue().Set(args.This());
 }
 
-Handle<Value> Flocon::Snow(const Arguments& args) {
-  HandleScope scope;
+void Flocon::Snow(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = Isolate::GetCurrent();
+  HandleScope scope(isolate);
 
   Flocon* obj = ObjectWrap::Unwrap<Flocon>(args.This());
 
@@ -86,5 +94,5 @@ Handle<Value> Flocon::Snow(const Arguments& args) {
 
   char buffer[21];
   snprintf(buffer, 21, "%llu", identifier);
-  return scope.Close(String::New(buffer));
+  return args.GetReturnValue().Set(String::NewFromOneByte(isolate, (uint8_t*)buffer));
 }

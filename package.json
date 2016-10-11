@@ -1,18 +1,58 @@
 {
-  "name": "flocon",
-  "version": "0.0.3",
-  "author": "Yosee <opensource@yosee.com>",
-  "description": "64-bits Unique ID generator for Node.js written in C++",
-  "keywords": [
-    "unique",
-    "id",
-    "uuid",
-    "uid",
-    "shard",
-    "database",
-    "db",
-    "snowflake"
+  "_args": [
+    [
+      {
+        "raw": "flocon@0.0.3",
+        "scope": null,
+        "escapedName": "flocon",
+        "name": "flocon",
+        "rawSpec": "0.0.3",
+        "spec": "0.0.3",
+        "type": "version"
+      },
+      "/Users/zhipeng/workspace/SinaVR-API"
+    ]
   ],
+  "_cnpm_publish_time": 1382376566162,
+  "_from": "flocon@0.0.3",
+  "_id": "flocon@0.0.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/flocon",
+  "_npmUser": {
+    "name": "amarcadet",
+    "email": "antoine.marcadet@gmail.com"
+  },
+  "_npmVersion": "1.3.11",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "flocon@0.0.3",
+    "scope": null,
+    "escapedName": "flocon",
+    "name": "flocon",
+    "rawSpec": "0.0.3",
+    "spec": "0.0.3",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/flocon/download/flocon-0.0.3.tgz",
+  "_shasum": "fb6604eac96cac16ab71793a9038623dbb2e39fc",
+  "_shrinkwrap": null,
+  "_spec": "flocon@0.0.3",
+  "_where": "/Users/zhipeng/workspace/SinaVR-API",
+  "author": {
+    "name": "Yosee",
+    "email": "opensource@yosee.com"
+  },
+  "bugs": {
+    "url": "https://github.com/zhipeng515/flocon/issues"
+  },
+  "config": {
+    "native": false
+  },
   "contributors": [
     {
       "name": "Antoine Marcadet",
@@ -23,32 +63,56 @@
       "email": "j.serenrosso@gmail.com"
     }
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
+  "description": "64-bits Unique ID generator for Node.js written in C++",
   "devDependencies": {
-    "mocha": "~1.12.0",
-    "should": "~1.2.2",
-    "long": "~1.1.2",
+    "bigint": "~0.4.2",
     "bignum": "~0.6.2",
-    "bigint": "~0.4.2"
+    "long": "~1.1.2",
+    "mocha": "~1.12.0",
+    "should": "~1.2.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Yosee/flocon.git"
+  "directories": {},
+  "dist": {
+    "shasum": "fb6604eac96cac16ab71793a9038623dbb2e39fc",
+    "size": 7982,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/flocon/download/flocon-0.0.3.tgz"
   },
-  "bugs": {
-    "url": "https://github.com/Yosee/flocon/issues"
-  },
-  "config": {
-    "native": false
-  },
-  "main": "lib/index.js",
   "engines": {
     "node": ">=0.10"
   },
+  "homepage": "https://github.com/zhipeng515/flocon",
+  "keywords": [
+    "unique",
+    "id",
+    "uuid",
+    "uid",
+    "shard",
+    "database",
+    "db",
+    "snowflake"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "name": "amarcadet",
+      "email": "antoine.marcadet@gmail.com"
+    }
+  ],
+  "name": "flocon",
+  "optionalDependencies": {},
+  "publish_time": 1382376566162,
+  "readme": "ERROR: No README data found!",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhipeng515/flocon.git"
+  },
   "scripts": {
-    "install": "(node-gyp rebuild 2> builderror.log) || (exit 0)",
+    "install": "(node-gyp rebuild) || (exit 0)",
     "test": "make test"
   },
-  "license": "MIT"
+  "version": "0.0.3"
 }

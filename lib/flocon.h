@@ -3,6 +3,7 @@
 
 #include <node.h>
 #include <chrono>
+#include <node_object_wrap.h>
 
 using namespace std;
 
@@ -14,8 +15,8 @@ class Flocon : public node::ObjectWrap {
     Flocon();
     ~Flocon();
 
-    static v8::Handle<v8::Value> New(const v8::Arguments& args);
-    static v8::Handle<v8::Value> Snow(const v8::Arguments& args);
+    static void New(const v8::FunctionCallbackInfo<v8::Value>& args);
+    static void Snow(const v8::FunctionCallbackInfo<v8::Value>& args);
     uint64_t _count;
     uint64_t _current;
     chrono::system_clock::time_point _epoch;
