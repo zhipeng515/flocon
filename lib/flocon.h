@@ -19,6 +19,7 @@ class Flocon : public node::ObjectWrap {
     static void Snow(const v8::FunctionCallbackInfo<v8::Value>& args);
     uint64_t _count;
     uint64_t _current;
+    uint64_t _pid;
     chrono::system_clock::time_point _epoch;
 };
 

@@ -12,6 +12,7 @@
 #include <chrono>   // std::chrono
 #include <ctime>
 #include <string>
+#include "fast_int_to_string/fast_int_to_string.hpp"
 
 using namespace v8;
 using namespace std;
@@ -51,7 +52,18 @@ void Flocon::New(const FunctionCallbackInfo<Value>& args) {
   Flocon* obj = new Flocon();
   obj->_count = 0;
   obj->_current = 0;
-  obj->_epoch = chrono::system_clock::from_time_t(1325376000); // January 1st, 2013
+  obj->_pid = (uint64_t)getpid() % 1024;
+
+  struct tm then_tm;
+  then_tm.tm_year = 2016-1900;
+  then_tm.tm_mon = 0;
+  then_tm.tm_mday = 1;
+  then_tm.tm_hour = 8;
+  then_tm.tm_min = 0;
+  then_tm.tm_sec = 0;
+  time_t timetThen = mktime(&then_tm);
+  obj->_epoch = chrono::system_clock::from_time_t(timetThen/*1325376000*/); // January 1st, 2013
+  printf("%ld", timetThen);
   obj->Wrap(args.This());
 
   return args.GetReturnValue().Set(args.This());
@@ -82,17 +94,15 @@ void Flocon::Snow(const FunctionCallbackInfo<Value>& args) {
     }
   }
 
-  uint64_t pid = (uint64_t)getpid();
-  pid = pid % 1024;
-
   if (obj->_current < time) {
     obj->_current = time;
     obj->_count = 0;
   }
-
-  uint64_t identifier = time << 23 | pid << 13 | (obj->_count++);
+ 
+  uint64_t identifier = time << 23 | obj->_pid << 13 | (obj->_count++);
 
   char buffer[21];
-  snprintf(buffer, 21, "%llu", identifier);
+  //snprintf(buffer, 21, "%llu", identifier);
+  fast_uint64_to_string(identifier, buffer);
   return args.GetReturnValue().Set(String::NewFromOneByte(isolate, (uint8_t*)buffer));
 }
