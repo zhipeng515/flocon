@@ -1,118 +1,31 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "flocon@0.0.3",
-        "scope": null,
-        "escapedName": "flocon",
-        "name": "flocon",
-        "rawSpec": "0.0.3",
-        "spec": "0.0.3",
-        "type": "version"
-      },
-      "/Users/zhipeng/workspace/SinaVR-API"
-    ]
-  ],
-  "_cnpm_publish_time": 1382376566162,
-  "_from": "flocon@0.0.3",
-  "_id": "flocon@0.0.3",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/flocon",
-  "_npmUser": {
-    "name": "amarcadet",
-    "email": "antoine.marcadet@gmail.com"
+  "name": "flocon-new",
+  "version": "0.0.4",
+  "description": "64-bits unique ID generator for Node.js written in C++.",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
   },
-  "_npmVersion": "1.3.11",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "flocon@0.0.3",
-    "scope": null,
-    "escapedName": "flocon",
-    "name": "flocon",
-    "rawSpec": "0.0.3",
-    "spec": "0.0.3",
-    "type": "version"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "git submodule update --init --recursive && node-gyp rebuild"
   },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npm.taobao.org/flocon/download/flocon-0.0.3.tgz",
-  "_shasum": "fb6604eac96cac16ab71793a9038623dbb2e39fc",
-  "_shrinkwrap": null,
-  "_spec": "flocon@0.0.3",
-  "_where": "/Users/zhipeng/workspace/SinaVR-API",
-  "author": {
-    "name": "Yosee",
-    "email": "opensource@yosee.com"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhipeng515/flocon.git"
   },
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
   "bugs": {
     "url": "https://github.com/zhipeng515/flocon/issues"
   },
-  "config": {
-    "native": false
-  },
-  "contributors": [
-    {
-      "name": "Antoine Marcadet",
-      "email": "antoine.marcadet@gmail.com"
-    },
-    {
-      "name": "Julien Seren-Rosso",
-      "email": "j.serenrosso@gmail.com"
-    }
-  ],
-  "dependencies": {},
-  "description": "64-bits Unique ID generator for Node.js written in C++",
+  "homepage": "https://github.com/zhipeng515/flocon#readme",
   "devDependencies": {
     "bigint": "~0.4.2",
     "bignum": "~0.6.2",
     "long": "~1.1.2",
     "mocha": "~1.12.0",
     "should": "~1.2.2"
-  },
-  "directories": {},
-  "dist": {
-    "shasum": "fb6604eac96cac16ab71793a9038623dbb2e39fc",
-    "size": 7982,
-    "noattachment": false,
-    "tarball": "http://registry.npm.taobao.org/flocon/download/flocon-0.0.3.tgz"
-  },
-  "engines": {
-    "node": ">=0.10"
-  },
-  "homepage": "https://github.com/zhipeng515/flocon",
-  "keywords": [
-    "unique",
-    "id",
-    "uuid",
-    "uid",
-    "shard",
-    "database",
-    "db",
-    "snowflake"
-  ],
-  "license": "MIT",
-  "main": "lib/index.js",
-  "maintainers": [
-    {
-      "name": "amarcadet",
-      "email": "antoine.marcadet@gmail.com"
-    }
-  ],
-  "name": "flocon",
-  "optionalDependencies": {},
-  "publish_time": 1382376566162,
-  "readme": "ERROR: No README data found!",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhipeng515/flocon.git"
-  },
-  "scripts": {
-    "install": "(node-gyp rebuild) || (exit 0)",
-    "test": "make test"
-  },
-  "version": "0.0.3"
+  }
 }

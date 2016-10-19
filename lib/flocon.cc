@@ -55,7 +55,7 @@ void Flocon::New(const FunctionCallbackInfo<Value>& args) {
   obj->_pid = (uint64_t)getpid() % 1024;
 
   struct tm then_tm;
-  then_tm.tm_year = 2016-1900;
+  then_tm.tm_year = 2013-1900;
   then_tm.tm_mon = 0;
   then_tm.tm_mday = 1;
   then_tm.tm_hour = 8;
@@ -63,7 +63,7 @@ void Flocon::New(const FunctionCallbackInfo<Value>& args) {
   then_tm.tm_sec = 0;
   time_t timetThen = mktime(&then_tm);
   obj->_epoch = chrono::system_clock::from_time_t(timetThen/*1325376000*/); // January 1st, 2013
-  printf("%ld", timetThen);
+//  printf("%ld", timetThen);
   obj->Wrap(args.This());
 
   return args.GetReturnValue().Set(args.This());
