@@ -104,5 +104,5 @@ void Flocon::Snow(const FunctionCallbackInfo<Value>& args) {
   char buffer[21];
   //snprintf(buffer, 21, "%llu", identifier);
   fast_uint64_to_string(identifier, buffer);
-  return args.GetReturnValue().Set(String::NewFromOneByte(isolate, (uint8_t*)buffer));
+  return args.GetReturnValue().Set(String::NewFromOneByte(isolate, (uint8_t*)buffer, v8::NewStringType::kNormal).ToLocalChecked());
 }
