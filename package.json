@@ -1,6 +1,6 @@
 {
   "name": "flocon-new",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "64-bits unique ID generator for Node.js written in C++.",
   "main": "lib/index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "git init && git submodule update --init --recursive && node-gyp rebuild"
+    "install": "node-gyp rebuild"
   },
   "repository": {
     "type": "git",
