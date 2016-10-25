@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "git submodule update --init --recursive && node-gyp rebuild"
+    "install": "git init && git submodule update --init --recursive && node-gyp rebuild"
   },
   "repository": {
     "type": "git",
