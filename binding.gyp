@@ -15,7 +15,10 @@
           }
         }],
         ['OS=="linux"', {
-          'cflags': [ '-std=c++0x' ]
+          'cflags': [ 
+			  '-std=c++0x',
+			  '-Wno-unused-function'
+			]
         }]
       ]
     }
