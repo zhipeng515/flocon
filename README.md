@@ -21,7 +21,7 @@ This module requires [C++11](http://en.wikipedia.org/wiki/C++11) because we use 
 ## Installation
 
 ```
-npm install flocon --save
+npm install flocon-new --save
 ```
 
 
