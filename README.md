@@ -15,7 +15,7 @@ Despite, if you want to use and contribute to this module, your help is welcome!
 
 ## Requirements
 
-This module requires [C++11](http://en.wikipedia.org/wiki/C++11) because we use [chrono](http://www.cplusplus.com/reference/chrono/) to work with timestamps.
+This module requires [C++17](http://en.wikipedia.org/wiki/C++17) because we use [chrono](http://www.cplusplus.com/reference/chrono/) to work with timestamps.
 
 
 ## Installation
