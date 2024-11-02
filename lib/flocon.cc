@@ -23,7 +23,7 @@ using namespace std;
 Flocon::Flocon() {};
 Flocon::~Flocon() {};
 
-void Flocon::Init(Handle<Object> exports) {
+void Flocon::Init(Local<Object> exports) {
   // Prepare constructor template
   Isolate* isolate = Isolate::GetCurrent();
 
@@ -31,8 +31,8 @@ void Flocon::Init(Handle<Object> exports) {
   Local<FunctionTemplate> tplNew = FunctionTemplate::New(isolate, New);
   Local<FunctionTemplate> tplsnow = FunctionTemplate::New(isolate, Snow);
 
-  v8::Local<v8::String> class_name = v8::String::NewFromUtf8(isolate, "Flocon");
-  v8::Local<v8::String> fn_name = v8::String::NewFromUtf8(isolate, "snow");
+  v8::Local<v8::String> class_name = v8::String::NewFromUtf8(isolate, "Flocon").ToLocalChecked();
+  v8::Local<v8::String> fn_name = v8::String::NewFromUtf8(isolate, "snow").ToLocalChecked();
 
   tplNew->SetClassName(class_name);
   tplNew->InstanceTemplate()->SetInternalFieldCount(1);
@@ -40,9 +40,10 @@ void Flocon::Init(Handle<Object> exports) {
   // Prototype
   tplNew->PrototypeTemplate()->Set(fn_name, tplsnow);
 
-  v8::Local<v8::Function> fn = tplNew->GetFunction();
+  v8::Local<v8::Context> context = isolate->GetCurrentContext();
+  v8::Local<v8::Function> fn = tplNew->GetFunction(context).ToLocalChecked();
   fn->SetName(fn_name);
-  exports->Set(class_name, fn);
+  exports->Set(context, class_name, fn);
 }
 
 void Flocon::New(const FunctionCallbackInfo<Value>& args) {

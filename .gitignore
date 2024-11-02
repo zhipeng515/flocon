@@ -14,7 +14,9 @@ lib-cov
 
 node_modules/*
 
+package-lock.json
 npm-debug.log
 build
 
 .idea
+.vscode
